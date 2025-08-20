@@ -38,7 +38,7 @@ const FlipbookViewer = ({ pdfUrl, shareUrl, className, disableShare }) => {
   }, []);
 
   return (
-    <div ref={containerRef} className={cn("relative  min-h-[100vh] bg-foreground w-full overflow-hidden", className)}>
+    <div ref={containerRef} className={cn("relative  h-[100vh] bg-foreground w-full overflow-hidden", className)}>
       {pdfLoading && <PdfLoading />}
       <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess} loading={<></>} >
         {(pdfDetails && !pdfLoading) &&
@@ -59,7 +59,16 @@ const FlipbookViewer = ({ pdfUrl, shareUrl, className, disableShare }) => {
                 screenfull={screenfull}
                 pdfDetails={pdfDetails}
               />
-              
+              <Toolbar
+                viewerStates={viewerStates}
+                setViewerStates={setViewerStates}
+                containerRef={containerRef}
+                flipbookRef={flipbookRef}
+                screenfull={screenfull}
+                pdfDetails={pdfDetails}
+                shareUrl={shareUrl}
+                disableShare={disableShare}
+              />
             </div>
           </TransformWrapper >
         }
