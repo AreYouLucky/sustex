@@ -3,8 +3,8 @@ import React from 'react'
 
 const Page = () => {
   return (
-    <div className="block">
-      <FlipbookViewer pdfUrl='/demo.pdf' />
+    <div className="block min-h-screen">
+      <FlipbookViewer pdfUrl='/sustex.pdf' />
     </div>
   )
 }
